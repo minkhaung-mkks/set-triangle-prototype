@@ -1,0 +1,29 @@
+.custom-slider {
+    position: relative;
+    height: 10px;
+    width: 100%;
+    background-color: rgb(215, 215, 215);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .slider-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: var(--accent);
+    border-radius: 5px;
+  }
+  
+  .slider-thumb {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: var(--secondary);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
