@@ -57,16 +57,23 @@ function App() {
     const imgBoxOriginalWidth = imgBoxRef.current.offsetWidth;
     const imgBoxOriginalHeight = imgBoxRef.current.offsetHeight;
 
-    const setBoxOriginalWidth = setBoxRef.current.offsetWidth;
-    const setBoxOriginalHeight = setBoxRef.current.offsetHeight;
+    let setBoxOriginalWidth = 0;
+    let setBoxOriginalHeight = 0;
+    if(setBoxRef != null){
+       setBoxOriginalWidth = setBoxRef.current.offsetWidth;
+       setBoxOriginalHeight = setBoxRef.current.offsetHeight;
+    }
     // Adjust the size of the div
     node.style.width = originalWidth * scale + "px";
     node.style.height = originalHeight * scale + "px";
     imgBoxRef.current.style.width = imgBoxOriginalWidth * scale + 'px'
     imgBoxRef.current.style.height = imgBoxOriginalHeight * scale + 'px'
     
-    setBoxRef.current.style.width = setBoxOriginalWidth * scale + "px";
-    setBoxRef.current.style.height = setBoxOriginalHeight * scale + "px";
+    
+    if(setBoxRef != null){
+      setBoxRef.current.style.width = setBoxOriginalWidth * scale + "px";
+      setBoxRef.current.style.height = setBoxOriginalHeight * scale + "px";
+   }
     const rect = node.getBoundingClientRect();
     const scaleX = node.offsetWidth / rect.width;
     const scaleY = node.offsetHeight / rect.height;
@@ -106,8 +113,10 @@ function App() {
            imgBoxRef.current.style.width = imgBoxOriginalWidth + 'px'
            imgBoxRef.current.style.height = imgBoxOriginalHeight + 'px'
            
-           setBoxRef.current.style.width = setBoxOriginalWidth  + "px";
-           setBoxRef.current.style.height = setBoxOriginalHeight  + "px";
+           if(setBoxRef != null){
+            setBoxRef.current.style.width = setBoxOriginalWidth  + "px";
+            setBoxRef.current.style.height = setBoxOriginalHeight  + "px";
+           }
         };
         img.src=dataUrl
         
